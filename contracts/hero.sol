@@ -11,7 +11,7 @@ contract Hero {
 
     mapping(address => uint256[]) addressToHeroes;
 
-    function generateRandom() public view returns (uint256) {
+    function generateRandom() public view virtual returns (uint256) {
         return uint256(keccak256(abi.encodePacked(block.difficulty, block.timestamp)));
     }
 
@@ -19,24 +19,24 @@ contract Hero {
         return addressToHeroes[msg.sender];
     }
 
-    function getStrength(uint256 hero) public pure returns (uint256) {
-        return (hero >> 2) & 0x1F;
+    function getStrength(uint256 hero) public pure returns (uint32) {
+        return uint32((hero >> 2) & 0x1F);
     }
 
-    function getHealth(uint256 hero) public pure returns (uint256) {
-        return (hero >> 7) & 0x1F;
+    function getHealth(uint256 hero) public pure returns (uint32) {
+        return uint32((hero >> 7) & 0x1F);
     }
 
-    function getDexterity(uint256 hero) public pure returns (uint256) {
-        return (hero >> 12) & 0x1F;
+    function getDexterity(uint256 hero) public pure returns (uint32) {
+        return uint32((hero >> 12) & 0x1F);
     }
 
-    function getIntellect(uint256 hero) public pure returns (uint256) {
-        return (hero >> 17) & 0x1F;
+    function getIntellect(uint256 hero) public pure returns (uint32) {
+        return uint32((hero >> 17) & 0x1F);
     }
 
-    function getMagic(uint256 hero) public pure returns (uint256) {
-        return (hero >> 22) & 0x1F;
+    function getMagic(uint256 hero) public pure returns (uint32) {
+        return uint32((hero >> 22) & 0x1F);
     }
 
     function createHero(Class class) public payable {
@@ -54,7 +54,7 @@ contract Hero {
 
         do {
             uint256 position = generateRandom() % length;
-            uint256 value = (generateRandom() % (13 % length)) + 1;
+            uint256 value = (generateRandom() % (13 + length)) + 1;
 
             hero |= value << stats[position];
             length--;
