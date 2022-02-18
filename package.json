@@ -1,0 +1,35 @@
+{
+  "name": "nft-smart-contract",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "playerony <pawel.wojtasinski.1995@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "run:node": "hardhat node",
+    "run:test": "hardhat test",
+    "format": "yarn prettier --write",
+    "format:check": "yarn prettier --check",
+    "prettier": "prettier \"**/*.+(js|jsx|ts|tsx|json)\""
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.5",
+    "@nomiclabs/hardhat-waffle": "^2.0.2",
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "^17.0.18",
+    "chai": "^4.3.6",
+    "dotenv": "^16.0.0",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.5.4",
+    "hardhat": "^2.8.4",
+    "hardhat-gas-reporter": "^1.0.8",
+    "html-webpack-plugin": "^5.5.0",
+    "prettier": "^2.5.1",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  }
+}
